@@ -1,4 +1,4 @@
-<?php session_start(); if(isset($_SESSION['emlak'])){ ?>
+<?php session_start(); if(isset($_SESSION['oturum'])){ ?>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 </head>
