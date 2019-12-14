@@ -1,4 +1,4 @@
-<?php session_start(); if(isset($_SESSION['emlak'])){ 
+<?php session_start(); if(isset($_SESSION['oturum'])){ 
 
 $kaynak    = $_FILES["dosya"]["tmp_name"];
 $dosyaadi   = $_FILES["dosya"]["name"];
