@@ -157,52 +157,61 @@ while ($gelen = mysql_fetch_array($sorgu)) {
         </div>
         <div class="row">
 
-          <?php echo $gelen['hakkimda']; ?>
+          <div style="margin: 20px;">
+            <h4 class="text-center">
+              <?php echo $gelen['hakkimda']; ?>
 
-        <?php } ?>
+              <a target="_blank" href="<?php echo $gelen['cvlink']; ?>">CV'mi görmek için tıkla! :)</a>
+            </h4>
 
-        <hr />
 
-        <table class="table table-bordered">
-          <thead>
-            <tr>
-              <th scope="col">İlgilendiğim Alanlar</th>
-              <th scope="col">Hobilerim</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>
-                Yazılım
-                <i>(Muhasebe Programları(ERP), Mobil Oyun ve Uygulamalar, Web
-                  Siteleri, Masaüstü Uygulamaları)</i>
-              </td>
-              <td>Elektronik</td>
-            </tr>
 
-            <tr>
-              <td>Donanım</td>
-              <td>Arduino, Raspberry pi</td>
-            </tr>
-            <tr>
-              <td>Web Tasarım</td>
-              <td>Müzik</td>
-            </tr>
-            <tr>
-              <td>3D Modelleme</td>
-              <td>Bilgisayar Oyunları</td>
-            </tr>
-            <tr>
-              <td>Photoshop</td>
-              <td>Seyahat</td>
-            </tr>
-          </tbody>
-        </table>
+          <?php } ?>
 
-        <br /><br />
+          <hr />
 
-        <i>&nbsp;&nbsp;* Kısaca yenilikci, alanında uzmanlaşmak isteyen ve
-          öğrenmeye hevesli bir yazılımcı.</i>
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th scope="col">İlgilendiğim Alanlar</th>
+                <th scope="col">Hobilerim</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  Yazılım
+                  <i>(Muhasebe Programları(ERP), Mobil Oyun ve Uygulamalar, Web
+                    Siteleri, Masaüstü Uygulamaları)</i>
+                </td>
+                <td>Elektronik</td>
+              </tr>
+
+              <tr>
+                <td>Donanım</td>
+                <td>Arduino, Raspberry pi</td>
+              </tr>
+              <tr>
+                <td>Web Tasarım</td>
+                <td>Müzik</td>
+              </tr>
+              <tr>
+                <td>3D Modelleme</td>
+                <td>Bilgisayar Oyunları</td>
+              </tr>
+              <tr>
+                <td>Photoshop</td>
+                <td>Seyahat</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <br /><br />
+
+          <i>&nbsp;&nbsp;* Kısaca yenilikci, alanında uzmanlaşmak isteyen ve
+            öğrenmeye hevesli bir yazılımcı.</i>
+          </div>
+
         </div>
       </div>
     </div>
@@ -468,46 +477,12 @@ while ($gelen = mysql_fetch_array($sorgu)) {
 
 
 
-              <?php
-              if (isset($_POST['gonder'])) {
-
-                $isim = $_POST['isim'];
-                $email = $_POST['email'];
-                $tel = $_POST['tel'];
-                $mesaj = $_POST['mesaj'];
-                $tarih = date('d.m.Y h:i:sa');
-                $ip = $_SERVER['REMOTE_ADDR'];
-
-                if ($isim == "" || $email == "" || $tel == "" || $mesaj == "") {
-
-                  echo '<font color="red"><b>Lütfen tüm alanları doldurun!</b></font><br><br>';
-                } else {
-
-                  /*if (!eregi("^([a-z0-9_]|\\-|\\.)+@(([a-z0-9_]|\\-)+\\.)+[a-z]{2,4}$", $email)) {
-
-                    echo '<font color="red"><b>Lütfen geçerli bir e-mail adresi girin!</b></font><br><br>';
-                  } else {
-
-                    $girilen_kod  = trim(strip_tags($_POST['security']));
-                    $guvenlik_kodu  = trim(strip_tags($_SESSION['koruma']));
-
-                    if ($girilen_kod != $guvenlik_kodu) {
-                      echo '<font color="red"><b>Güvenlik kodunu eksik yada yanlış girdiniz. Lütfen tekrar deneyin!</b></font><br><br>';
-                    } else {*/
-  
-                    $kayit = mysql_query("insert into contact(isim,email,tel,mesaj,tarih,ip) values('$isim','$email','$tel','$mesaj','$tarih','$ip')") or trigger_error(mysql_error(), E_USER_ERROR);
-
-                    echo '<font color="green"><b>Mesajınız gönderildi. Kısa bir süre içinde sizinle iletişime geçeceğiz.</b></font><br><br>';
-                    //}
-                  }
-                }
-              
-              ?>
+             
 
 
 
 
-              <form method="post">
+              <form action="assets/plugin/addcontact.php" method="post">
                 <div class="input-grup">
                   <input type="text" placeholder="İsim" id="isim" name="isim" />
                   <input type="email" placeholder="Email " id="email" name="email" />
